@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray: #666565;
+
+    /* Gradients */
+    --grandient-linear-gray-neutral: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+}
+
+html {
+    background: var(--grandient-linear-gray-neutral);
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    overflow: hidden;
+}
+
+main {
+}

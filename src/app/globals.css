@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray: #666565;
+    --color-gray-medium: #F2f2f2;
+    --color-gray-50: #F7F7F7;
+    --color-gray-200: #EBEBEB;
+    --nextui-foreground: #000000;
+
+    /* Gradients */
+    --grandient-linear-gray-neutral: linear-gradient(180deg, #FAFAFA 0%, #F0F0F0 100%);
+}
+
+html {
+    background: var(--color-gray-medium);
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    min-height: calc(100vh - 90px);
+}
+
+h1, .h1 {
+}
+
+h3, .h3 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+h4, .h4 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.navigation {
+    border-radius: 8px;
+    border-bottom: 1px solid var(--Gray-200, #EBEBEB);
+    background: var(--Base-White, #FFF);
+    height: 64px;
+}
+
+footer {
+    background-color: #F5824F;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+}
+
+footer .footer__bar {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+.label-black label {
+    color: var(--color-black) !important;
+}
+
+.language_picker {
+    position: relative;
+}
+
+.language_picker__content {
+    position: relative;
+    background: transparent;
+}
+
+.user_page_title {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 32px;
+    color: var(--color-black);
+}
+
+.circular_bg_top {
+    position: absolute;
+    background: #F5824F;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    width: 155vw;
+    height: calc(100vh - 166px);
+    left: 50%;
+    top: 96px;
+    transform: translateX(-50%);
+}
+
+.circular_bg_title {
+    position: absolute;
+    background: var(--color-white);
+    border-bottom-left-radius: 1000%;
+    border-bottom-right-radius: 1000%;
+    box-sizing: border-box;
+    width: calc(100% - 2rem);
+    height: 120px;
+    top: 20px;
+}
+
+.content_box_container {
+    height: auto;
+    padding: 48px 16px 120px;
+    border-radius: 8px;
+    background: var(--Base-White, #FFF);
+    box-shadow: 0px 1px 3px 0px rgba(28, 28, 28, 0.10), 0px 1px 2px 0px rgba(34, 51, 34, 0.06);
+}
+
+.content_box_container.no_footer_bg {
+    padding: 48px 16px 24px;
+}
+
+.welcome__content h2 {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 32px;
+    color: var(--color-black);
+}
+
+.footer_bg_pattern {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.footer_bg_pattern .images_container {
+    background: url('/assets/images_bg.svg');
+    background-position: top left;
+    width: 100%;
+    padding-top: 64px;
+}
+
+.icon_container {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--Gray-300, #D4D4D4);
+    background: var(--Base-White, #FFF);
+    box-shadow: 0px 1px 2px 0px rgba(28, 28, 28, 0.05);
+}
+
+.full_height_content {
+    height: calc(100vh - 94px);   
+}
+
+.full_height_content .content_box_container {
+    height: 100%;
+}
+
+.anesthesia__content.content_box_container.no_footer_bg {
+    padding-top: 24px;
+}
+
+.anesthesia_page_title {
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--color-black);
+}
+
+.tabs_holder {
+    border-radius: 10px;
+    border: 1px solid var(--color-gray-200);
+    background: var(--color-gray-50);
+    padding: 4px;
+}
+
+.tabs_holder button {
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.inner_title {
+    position: relative;
+}
+
+.inner_title:before {
+    content: '';
+    left: 0;
+    top: 50%;
+    position: absolute;
+    height: 0;
+    width: 100%;
+    border-top: 1px solid var(--color-gray-200);
+    z-index: 5;
+}
+
+.inner_title span {
+    position: relative;
+    z-index: 20;
+    padding: 0 8px;
+}
+
+.info_text {
+    color: var(--color-gray);
+    font-size: 14px;
+}
+
+input {
+    font-size: 16px !important;
+}
+
+.input_end {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-left: 1px solid gray;
+}
+
+.tag {
+    color: var(--Gray-700, #403F3F);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    padding: 4px 28px 4px 12px;
+    align-items: center;
+    gap: 2px;
+    border-radius: 16px;
+    border: 1px solid var(--Gray-300, #D4D4D4);
+    background: var(--color-gray-50);
+    position: relative;
+}
+
+.tag:after {
+    content: url(../../public/assets/icons/close-x.svg);
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 14px;
+}
