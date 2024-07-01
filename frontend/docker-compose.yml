@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  web:
+  # nombre de la aplicacion
+    container_name: frontend_vapp
+    restart: "no"
+    build: .
+    ports:
+      - "8002:3000"
+    volumes:
+      - .:/usr/src/app
+
+
+      #comando para correr 
+      #docker-compose build
+      #docker-compose up
+      #docker-compose -p frontend_vapp up -d
+      #docker ps
+      #simplemente usa 
+      #docker-compose -p frontend_vapp up --build
+      #From your project folder, run the following command: 
+#>`docker-compose up -d`
+#when ports didn't work propertly  
+#>`net stop winnat`
+#>`net start winnat`
