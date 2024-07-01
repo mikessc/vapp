@@ -1,4 +1,6 @@
-FROM node:20.5.1
+# FROM node:20.5.1
+
+FROM node:18
 
 RUN mkdir -p /usr/src/app
 
@@ -16,4 +18,4 @@ RUN npm audit fix
 
 CMD ["npm", "run", "dev"]
 
-# para correr dar este comando: docker build -t hellonode .
+# para corr 
