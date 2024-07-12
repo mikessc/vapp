@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "races",
+  "info": {
+    "singularName": "race",
+    "pluralName": "races",
+    "displayName": "Race"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "perro": {
+      "type": "enumeration",
+      "enum": [
+        "dalmata",
+        "husky",
+        "chihuaha",
+        "labrador retriever",
+        "Pastor Alemán",
+        "golden retriever",
+        "bulldog francés",
+        "beagle",
+        "boxer"
+      ]
+    }
+  }
+}
