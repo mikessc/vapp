@@ -257,3 +257,10 @@ input {
     transform: translateY(-50%);
     height: 14px;
 }
+
+.radio-expand {
+    width: 100%;
+}
+.radio-expand > div {
+    justify-content: space-around;
+}
