@@ -24,6 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <UiProvider>
+            <MainMenu />
             <NavBarComponent />
             <main>{children}</main>
             <Footer />
