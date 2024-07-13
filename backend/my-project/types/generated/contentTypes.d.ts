@@ -788,6 +788,117 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiHospitalHospital extends Schema.CollectionType {
+  collectionName: 'hospitals';
+  info: {
+    singularName: 'hospital';
+    pluralName: 'hospitals';
+    displayName: 'Hospital';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    phone: Attribute.BigInteger;
+    direction: Attribute.Text;
+    email: Attribute.Text;
+    check: Attribute.Boolean;
+    patients: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToMany',
+      'api::patient.patient'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPatientPatient extends Schema.CollectionType {
+  collectionName: 'patients';
+  info: {
+    singularName: 'patient';
+    pluralName: 'patients';
+    displayName: 'Patient';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hospital: Attribute.Relation<
+      'api::patient.patient',
+      'manyToOne',
+      'api::hospital.hospital'
+    >;
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::patient.patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::patient.patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSpecieSpecie extends Schema.CollectionType {
+  collectionName: 'species';
+  info: {
+    singularName: 'specie';
+    pluralName: 'species';
+    displayName: 'Specie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    perro: Attribute.String;
+    gato: Attribute.String;
+    caballo: Attribute.String;
+    conejo: Attribute.String;
+    cobayo: Attribute.String;
+    huron: Attribute.String;
+    hamster: Attribute.String;
+    chinchilla: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::specie.specie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::specie.specie',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -806,6 +917,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::hospital.hospital': ApiHospitalHospital;
+      'api::patient.patient': ApiPatientPatient;
+      'api::specie.specie': ApiSpecieSpecie;
     }
   }
 }
