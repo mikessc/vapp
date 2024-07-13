@@ -2,14 +2,19 @@ version: "3.9"
 
 services:
   frontend:
-    container_name: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: simple-react-app:latest
+    container_name: frontend
     ports:
       - "8002:3000"
     volumes:
       - ./frontend:/usr/src/app
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1 
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true 
     restart: "no"
 
   backend:
