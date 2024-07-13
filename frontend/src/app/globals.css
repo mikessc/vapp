@@ -349,3 +349,7 @@ input {
 .radio-expand > div {
     justify-content: space-between;
 }
+
+.colorCheckbox:checked {
+    accent-color: #e9672f;
+}
