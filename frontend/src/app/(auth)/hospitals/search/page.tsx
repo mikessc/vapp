@@ -17,7 +17,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="hospital mx-auto px-8 pt-10 pb-16 max-w-screen-lg box-border justify full_height_content">
+      <div className="hospital mx-auto px-8 pt-10 pb-16  box-border justify ">
         <div className="hospital__content flex flex-col content_box_container no_footer_bg relative">
           <IconContainer classes="mx-auto mb-8" icon="building" />
           <h2 className='text-center user_page_title'>Registro de Hospitales</h2>
