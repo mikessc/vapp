@@ -28,7 +28,7 @@ export default function Page() {
                 radius='sm'
                 size="lg"
                 className='text-lg bg-white flex items-center py-8 font-bold w-full mb-4 rounded-lg custom_button custom_border'
-                onClick={() => router.push('/hospitals/search')}
+                onClick={() => router.push('/profile/editProfile')}
               >
                 <div className="flex items-center">
                   <Image
@@ -45,7 +45,7 @@ export default function Page() {
                 radius='sm'
                 size="lg"
                 className='text-lg bg-white flex items-center py-8 font-bold w-full mb-4 rounded-lg custom_button custom_border'
-                onClick={() => router.push('/welcome')}
+                onClick={() => router.push('/profile/editPassword')}
               >
                 <div className="flex items-center">
                   <Image
@@ -62,7 +62,7 @@ export default function Page() {
                 radius='sm'
                 size="lg"
                 className='text-lg bg-white flex items-center py-8 font-bold w-full mb-4 rounded-lg custom_button custom_border'
-                onClick={() => router.push('/welcome')}
+                onClick={() => router.push('/profile/editLanguage')}
               >
                 <div className="flex items-center">
                   <Image
