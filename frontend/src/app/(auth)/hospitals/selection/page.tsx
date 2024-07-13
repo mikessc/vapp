@@ -40,7 +40,7 @@ const HospitalCard = () => {
       {isOpen && (
         <div className="mt-6">
           <p className="text-stone-800 font-bold">Teléfono: +123 456 7890</p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4 mt-2">
             <input
               title='email-1'
               type="email"
@@ -52,7 +52,7 @@ const HospitalCard = () => {
               title='email-2'
               type="email"
               value="otroemailhospitalveterinario@hvs.cl"
-              className="w-full p-1 rounded-large text-xs border border-stone-300"
+              className="w-fit p-1 rounded-large text-xs border border-stone-300"
               readOnly
             />
           </div>
@@ -83,7 +83,7 @@ export default function Page() {
   const router = useRouter(); 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const hospitals = new Array(5).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
+  const hospitals = new Array(1).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
 
   const totalPages = Math.ceil(hospitals.length / ITEMS_PER_PAGE);
 
@@ -107,7 +107,7 @@ export default function Page() {
 
           <IconContainer classes="mx-auto mb-8" icon="building" />
           <h2 className='text-center user_page_title'>Registro de Hospitales</h2>
-
+          
           <div className="hospital__form_container flex flex-col gap-6 pt-8 pb-8 ">
             <div className="flex">
               <Input
@@ -129,7 +129,7 @@ export default function Page() {
             </div>
           </div>
           
-          <div className="results max-h-96 overflow-y-auto mx-5 px-6">
+          <div className="results max-h-110 overflow-y-auto mx-5 px-6">
           {hospitals.map((_, index) => (
               <HospitalCard key={index} />
             ))}
