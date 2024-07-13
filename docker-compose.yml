@@ -1,0 +1,65 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: simple-react-app:latest
+    container_name: frontend
+    ports:
+      - "8002:3000"
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1 
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true 
+    restart: "no"
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend/my-project
+      dockerfile: Dockerfile
+    image: strapi:latest
+    restart: "no"
+    env_file: ./backend/my-project/.env  
+    environment:
+      NODE_ENV: development  # Ajusta las variables de entorno según las requeridas por Strapi
+      PORT: 1337
+      APP_KEYS: 4fNRKtNJ9cNzfKNpWzh69A==,8ohkM+HCVBqeTb3Mb5jkgA==,KVYmGEoAIXIC9hSA8YtH5Q==,HnNRPUor/erGeDXqjSCPSg==
+      API_TOKEN_SALT: H4DAvk2JXIkzfvURrB1wKg==
+      ADMIN_JWT_SECRET: b+3wezXAVp5drNNvlL3aHQ==
+      TRANSFER_TOKEN_SALT: Q4ZoD9mXFk4OjkaRQ1o5rw==
+      DATABASE_CLIENT: sqlite
+      DATABASE_FILENAME: .tmp/data.db
+      JWT_SECRET: ZbJA2fqoj2Z8lqDI7ZQPYQ==
+    volumes:
+      - ./backend/my-project/config:/opt/app/config
+      - ./backend/my-project/src:/opt/app/src
+      - ./backend/my-project/package.json:/opt/package.json
+      - ./backend/my-project/yarn.lock:/opt/yarn.lock
+      - ./backend/my-project/.env:/opt/app/.env
+      - ./backend/my-project/public/uploads:/opt/app/public/uploads  
+    ports:
+      - "8003:1337"
+    networks:
+      - strapi
+
+networks:
+  strapi:  # Definición de la red Strapi
+    name: Strapi
+    driver: bridge
+
+      #comando para correr 
+      #docker-compose build
+      #docker u
+      #simplemente usa 
+      #docker-compose -p app_vapp up --build
+      
+      #From your project folder, run the following command: 
+#>`docker-compose up -d`
+#when ports didn't work propertly  
+#>`net stop winnat`
+#>`net start winnat`
