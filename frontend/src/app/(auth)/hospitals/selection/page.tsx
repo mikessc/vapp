@@ -41,20 +41,7 @@ export default function Page() {
               />
             </div>
           </div>
-          <div className="imgBackground relative">
-              <Image
-              src="/assets/no_hospitals.jpg"
-              alt="results"
-              width={1000}
-              height={1000}
-              className='w-[100%] h-[auto]'
-              priority
-              />
-              <h3 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              style={{ color: 'var(--color-gray-200)'}}>
-              Aún no tienes registros
-              </h3>
-            </div>
+          
           <div className="results">
           
           </div>
