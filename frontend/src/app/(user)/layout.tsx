@@ -4,6 +4,7 @@ import '../globals.css';
 import UiProvider from '@/lib/UiProvider';
 import Footer from '@/components/Footer';
 import NavBarComponent from '@/components/NavBarComponent';
+import MainMenu from '@/components/MainMenu';
 import ReduxProvider from '@/redux/provider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <UiProvider>
+            <MainMenu />
             <NavBarComponent />
             <main>{children}</main>
             <Footer />

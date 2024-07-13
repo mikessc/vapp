@@ -10,7 +10,8 @@ import {
   SelectItem,
   Textarea,
   RadioGroup,
-  Radio
+  Radio,
+  Switch
 } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 import FooterBGPattern from '@/components/FooterBGPattern';
@@ -377,8 +378,612 @@ export default function Page() {
               </div>
             </Tab>
             <Tab key="exámenes" title="Exámenes">
+              <div className="anesthesia__content flex flex-col content_box_container no_footer_bg relative mb-8">
+                <div className="register__form_container flex flex-col gap-6">
+                  <h3 className="inner_title text-black text-center">
+                    <span className="bg-white">Examen Físico</span>
+                  </h3>
+                  <div className="flex gap-6">
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Fc"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">LPM</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Fr"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">RPM</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Mucosas"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Tllc"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">Seg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PC"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">Seg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Temp"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">°C</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PAS"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mmHg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PAD"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mmHg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PAM"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mmHg</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <Input
+                      label="Agregar Parámetro"
+                      labelPlacement="outside"
+                      key="outside"
+                      isClearable
+                      className="text-black label-black"
+                      placeholder="Buscar"
+                      variant="bordered"
+                      fullWidth
+                      radius="sm"
+                      startContent={<Image
+                        src={`/assets/icons/search.svg`}
+                        alt="search"
+                        width={22}
+                        height={22}
+                        priority
+                      />}
+                    />
+                    <p className="info_text py-2">Seleccione parámetros que desea agregar.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="anesthesia__content flex flex-col content_box_container no_footer_bg relative mb-8">
+                <div className="register__form_container flex flex-col gap-6">
+                  <h3 className="inner_title text-black text-center">
+                    <span className="bg-white">Exámenes Complementarios</span>
+                  </h3>
+                  <div className="flex gap-6">
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Htc"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">%</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Hb"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">g/dL</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Pt/Alb"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">g/dL</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Creatinina"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mg/dL</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <Input
+                      label="Agregar Examen"
+                      labelPlacement="outside"
+                      key="outside"
+                      isClearable
+                      className="text-black label-black"
+                      placeholder="Buscar"
+                      variant="bordered"
+                      fullWidth
+                      radius="sm"
+                      startContent={<Image
+                        src={`/assets/icons/search.svg`}
+                        alt="search"
+                        width={22}
+                        height={22}
+                        priority
+                      />}
+                    />
+                    <p className="info_text py-2">Seleccione los exámenes adicionales que desea agregar.</p>
+                  </div>
+                  <div className="flex flex-col">
+                    <Input
+                      label="Adjuntar Exámenes"
+                      labelPlacement="outside"
+                      key="outside"
+                      className="text-black label-black"
+                      placeholder=" "
+                      variant="bordered"
+                      fullWidth
+                      radius="sm"
+                      endContent={<Image
+                        src={`/assets/icons/attachment.svg`}
+                        alt="search"
+                        width={22}
+                        height={22}
+                        priority
+                      />}
+                    />
+                    <p className="info_text py-2">Archivos en formato .pdf</p>
+                  </div>
+                  <div className="flex flex-row gap-4 flex-wrap">
+                    <span className="tag">Quimicas Chispita.pdf</span>
+                    <span className="tag">Examen Chispita.pdf</span>
+                    <span className="tag">Examen.pdf</span>
+                    <span className="tag">Examen 2.pdf</span>
+                    <span className="tag">Examen Chispita.pdf</span>
+                    <span className="tag">Examen Chispita.pdf</span>
+                  </div>
+                  <div className="flex">
+                    <p><b>Clasificación ASA*</b></p>
+                  </div>
+                  <div className="flex">
+                    <RadioGroup
+                      orientation="horizontal"
+                      className='radio-expand'
+                    >
+                      <Radio value="1">1</Radio>
+                      <Radio value="2">2</Radio>
+                      <Radio value="3">3</Radio>
+                      <Radio value="4">4</Radio>
+                      <Radio value="5">5</Radio>
+                      <Radio value="E">E</Radio>
+                    </RadioGroup>
+                  </div>
+                </div>
+              </div>
             </Tab>
             <Tab key="protocolo" title="Protocolo">
+            <div className="anesthesia__content flex flex-col content_box_container no_footer_bg relative mb-8">
+                <div className="register__form_container flex flex-col gap-6">
+                  <h3 className="inner_title text-black text-center">
+                    <span className="bg-white">Examen Físico</span>
+                  </h3>
+                  <div className="flex gap-6">
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Fc"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">LPM</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Fr"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">RPM</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Mucosas"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Tllc"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">Seg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PC"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">Seg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="Temp"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">°C</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PAS"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mmHg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PAD"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mmHg</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-4/12">
+                      <Input
+                        key="outside"
+                        label="PAM"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mmHg</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <Input
+                      label="Agregar Parámetro"
+                      labelPlacement="outside"
+                      key="outside"
+                      isClearable
+                      className="text-black label-black"
+                      placeholder="Buscar"
+                      variant="bordered"
+                      fullWidth
+                      radius="sm"
+                      startContent={<Image
+                        src={`/assets/icons/search.svg`}
+                        alt="search"
+                        width={22}
+                        height={22}
+                        priority
+                      />}
+                    />
+                    <p className="info_text py-2">Seleccione parámetros que desea agregar.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="anesthesia__content flex flex-col content_box_container no_footer_bg relative mb-8">
+                <div className="register__form_container flex flex-col gap-6">
+                  <h3 className="inner_title text-black text-center">
+                    <span className="bg-white">Exámenes Complementarios</span>
+                  </h3>
+                  <div className="flex gap-6">
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Htc"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">%</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Hb"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">g/dL</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Pt/Alb"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">g/dL</span>)
+                        }
+                      />
+                    </div>
+                    <div className="w-6/12">
+                      <Input
+                        key="outside"
+                        label="Creatinina"
+                        className="text-black label-black"
+                        labelPlacement="outside"
+                        placeholder=" "
+                        variant="bordered"
+                        fullWidth
+                        radius="sm"
+                        endContent={
+                          (<span className="input_end">mg/dL</span>)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col">
+                    <Input
+                      label="Agregar Examen"
+                      labelPlacement="outside"
+                      key="outside"
+                      isClearable
+                      className="text-black label-black"
+                      placeholder="Buscar"
+                      variant="bordered"
+                      fullWidth
+                      radius="sm"
+                      startContent={<Image
+                        src={`/assets/icons/search.svg`}
+                        alt="search"
+                        width={22}
+                        height={22}
+                        priority
+                      />}
+                    />
+                    <p className="info_text py-2">Seleccione los exámenes adicionales que desea agregar.</p>
+                  </div>
+                  <div className="flex flex-col">
+                    <Input
+                      label="Adjuntar Exámenes"
+                      labelPlacement="outside"
+                      key="outside"
+                      className="text-black label-black"
+                      placeholder=" "
+                      variant="bordered"
+                      fullWidth
+                      radius="sm"
+                      endContent={<Image
+                        src={`/assets/icons/attachment.svg`}
+                        alt="search"
+                        width={22}
+                        height={22}
+                        priority
+                      />}
+                    />
+                    <p className="info_text py-2">Archivos en formato .pdf</p>
+                  </div>
+                  <div className="flex flex-row gap-4 flex-wrap">
+                    <span className="tag">Quimicas Chispita.pdf</span>
+                    <span className="tag">Examen Chispita.pdf</span>
+                    <span className="tag">Examen.pdf</span>
+                    <span className="tag">Examen 2.pdf</span>
+                    <span className="tag">Examen Chispita.pdf</span>
+                    <span className="tag">Examen Chispita.pdf</span>
+                  </div>
+                  <div className="flex">
+                    <p><b>Clasificación ASA*</b></p>
+                  </div>
+                  <div className="flex">
+                    <RadioGroup
+                      orientation="horizontal"
+                      className='radio-expand'
+                    >
+                      <Radio value="1">1</Radio>
+                      <Radio value="2">2</Radio>
+                      <Radio value="3">3</Radio>
+                      <Radio value="4">4</Radio>
+                      <Radio value="5">5</Radio>
+                      <Radio value="E">E</Radio>
+                    </RadioGroup>
+                  </div>
+                </div>
+              </div>
             </Tab>
             <Tab key="monitorizacion" title="Monitorización">
             </Tab>

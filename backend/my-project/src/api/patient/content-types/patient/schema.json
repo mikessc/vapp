@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patients",
+  "info": {
+    "singularName": "patient",
+    "pluralName": "patients",
+    "displayName": "Patient"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hospital": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hospital.hospital",
+      "inversedBy": "patients"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

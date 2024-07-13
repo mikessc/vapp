@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "species",
+  "info": {
+    "singularName": "specie",
+    "pluralName": "species",
+    "displayName": "Specie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "perro": {
+      "type": "string"
+    },
+    "gato": {
+      "type": "string"
+    },
+    "caballo": {
+      "type": "string"
+    },
+    "conejo": {
+      "type": "string"
+    },
+    "cobayo": {
+      "type": "string"
+    },
+    "huron": {
+      "type": "string"
+    },
+    "hamster": {
+      "type": "string"
+    },
+    "chinchilla": {
+      "type": "string"
+    }
+  }
+}

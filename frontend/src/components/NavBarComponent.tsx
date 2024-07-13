@@ -11,6 +11,16 @@ import {
 import Image from 'next/image';
 
 const NavBarComponent: React.FC = () => {
+  const toggleMenu = () => {
+    const menuElement = document.getElementById('main_menu');
+    
+    if (menuElement) {
+      menuElement.classList.toggle('closed');
+    } else {
+      console.error('Element with ID "main_menu" not found.');
+    }
+  };
+
   return (
     <Navbar
       maxWidth="full"
@@ -32,6 +42,7 @@ const NavBarComponent: React.FC = () => {
           radius='none'
           size='sm'
           className='text-black shrink-0 bg-white'
+          onClick={toggleMenu}
         >
           <Image
             src="/assets/icons/menu.svg"

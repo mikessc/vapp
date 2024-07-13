@@ -51,6 +51,91 @@ h4, .h4 {
     height: 64px;
 }
 
+#main_menu {
+    background-color: white;
+    padding: 30px 20px;
+    position: absolute;
+    width: calc(100% - 64px);
+    height: 100%;
+    z-index: 999;
+    left: 0;
+    transition: left 0.5s ease;
+}
+
+#main_menu.closed {
+    left: 100%;
+}
+
+#main_menu > .flex {
+    height: 100%;
+}
+
+#main_menu .logo {
+    margin-bottom: 32px;
+}
+
+#main_menu .logo img {
+    height: 15px;
+}
+
+#main_menu .menu_items {
+    display: flex;
+    flex-direction: column;
+}
+
+#main_menu .menu_item, #main_menu .help.menu_item a {
+    gap: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #666565;
+    font-weight: 600;
+}
+
+#main_menu .menu-icon {
+    height: 18px;
+    width: 18px;
+}
+
+#main_menu .menu_footer {
+    margin-top: auto;
+}
+
+#main_menu .user {
+    gap: 12px;
+}
+
+#main_menu .user_info .name {
+    font-weight: 500;
+}
+
+#main_menu .user_info .email {
+    font-weight: 300;
+}
+
+#main_menu .help a {
+    display: flex;
+}
+
+#main_menu .logout img {
+    height: 18px;
+}
+
+#main_menu .closeBTN {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 64px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .75);
+    cursor: pointer;
+}
+
+#main_menu .closeBTN img {
+    width: 24px;
+    height: 24px;
+    margin: 24px auto;
+}
+
 footer {
     background-color: #F5824F;
     position: fixed;
@@ -151,6 +236,22 @@ h1, h2, h3 {
     box-shadow: 0px 1px 2px 0px rgba(28, 28, 28, 0.05);
 }
 
+.icon_container_circle {
+    padding: 14px;
+    border-radius: 50%;
+    border: 1px solid var(--Gray-300, #D4D4D4);
+    background: var(--Base-White, #FFF);
+    box-shadow: 0px 1px 2px 0px rgba(28, 28, 28, 0.05);
+  }
+
+  .custom_button {
+    color: #403F3F !important;
+  }
+
+  .custom_border {
+    border: 1px solid var(--Gray-300, #D4D4D4); /* Borde con color Gray-300 */
+  }
+
 .full_height_content {
     height: calc(100vh - 94px);   
 }
@@ -240,4 +341,11 @@ input {
     top: 50%;
     transform: translateY(-50%);
     height: 14px;
+}
+
+.radio-expand {
+    width: 100%;
+}
+.radio-expand > div {
+    justify-content: space-between;
 }
