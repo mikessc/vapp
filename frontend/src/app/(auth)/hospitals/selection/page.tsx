@@ -228,6 +228,13 @@ export default function Page() {
                 fullWidth
                 onClick={() => router.push('/hospitals/register')}
               >
+              <Image
+              src="/assets/icons/plus-square-black.svg"
+              alt="Save Icon"
+              width={24}
+              height={24}
+              className="mr-2"
+              />  
                 Registrar Nuevo
               </Button>
             </div>
