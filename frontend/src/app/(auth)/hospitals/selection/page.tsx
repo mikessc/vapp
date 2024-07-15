@@ -15,6 +15,7 @@ import Image from 'next/image';
 const ITEMS_PER_PAGE = 100;
 
 const HospitalCard = () => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -74,7 +75,7 @@ const HospitalCard = () => {
           <div className="flex gap-4 mt-4">
             <button
               className="text-gray-400 hover:text-gray-700"
-              onClick={() => router.push('/hospitals/search')}
+              onClick={() => router.push('/hospitals/selection')}
             >
               Borrar registro
             </button>
