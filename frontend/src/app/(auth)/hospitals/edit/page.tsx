@@ -30,7 +30,7 @@ const AlertEmail = () => {
         className="cursor-pointer"
       />
       {isHovered && (
-        <div className="absolute -right-1 -top-11 mt-2 mr-2 w-64 p-2 bg-stone-900 border border-stone-900 rounded shadow-lg">
+        <div className="absolute -right-1 -top-12 mt-2 mr-2 w-64 p-2 bg-stone-900 border border-stone-900 rounded shadow-lg">
         <div className="relative flex justify-center">
           <div className="absolute top-4 left-full transform -translate-x-1/2 w-3 h-3 bg-stone-900 border-l border-t border-stone-900 rotate-45"></div>
         </div>
