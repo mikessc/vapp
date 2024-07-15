@@ -14,11 +14,27 @@ import Image from 'next/image';
 
 const ITEMS_PER_PAGE = 100;
 
+
 const HospitalCard = () => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
+  };
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
+
+  const handleDelete = () => {
+    // Aquí iría la lógica para eliminar el registro
+    console.log('Eliminando registro...');
+    setIsOpenModal(false); // Cerrar el modal después de eliminar
   };
 
   return (
@@ -40,22 +56,24 @@ const HospitalCard = () => {
       {isOpen && (
         <div className="mt-6">
           <p className="text-stone-800 font-bold">Teléfono: +123 456 7890</p>
-          <div className="flex gap-4 mt-2">
-            <input
-              title='email-1'
-              type="email"
-              value="hospitalveterinarin@hvs.cl"
-              className="w-fit p-1 rounded-large text-xs border border-stone-300"
-              readOnly
-            />
-            <input
-              title='email-2'
-              type="email"
-              value="otroemailhospitalveterinario@hvs.cl"
-              className="w-fit p-1 rounded-large text-xs border border-stone-300"
-              readOnly
-            />
-          </div>
+          <div className="flex flex-col md:flex-row gap-4 mt-2">
+          <input
+          title='email-1'
+          type="email"
+          value="hospitalveterinarin@hvs.cl"
+          className="w-fit font-semibold p-1 rounded-full text-xs border border-stone-300"
+          style={{ color: 'var(--color-lightblue)' }}
+          readOnly
+          />
+          <input
+          title='email-2'
+          type="email"
+          value="otroemailhospitalveterinario@hvs.cl"
+          className="w-fit font-semibold p-1 rounded-full text-xs border border-stone-300"
+          style={{ color: 'var(--color-lightblue)' }}
+          readOnly
+          />
+        </div>
           
           <div className="flex items-center mt-4">
             <input
@@ -70,8 +88,60 @@ const HospitalCard = () => {
           </div>
 
           <div className="flex gap-4 mt-4">
-            <Button className="text-gray-600">Aceptar</Button>
-            <Button className="text-gray-600">Cancelar</Button>
+          <button
+              className="text-gray-400 hover:text-gray-700"
+              onClick={openModal} // Abrir el modal al hacer clic en este botón
+            >
+              Borrar registro
+            </button>
+            {isOpenModal && (
+               <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
+               <div className="bg-white p-10 rounded-lg flex flex-col justify-center items-center relative">
+                 <Image
+                   src="/assets/icons/x-close.svg"
+                   alt="Close Icon"
+                   className="cursor-pointer absolute top-5 right-7"
+                   onClick={closeModal}
+                   width={25}
+                   height={25}
+                 />
+       
+                 <div className="flex flex-col items-center gap-4">
+                   <Image 
+                   src="/assets/icons/delete-Icon.svg" 
+                   alt="Trash Icon" 
+                   width={60} 
+                   height={60} 
+                   />
+       
+                   <h2 className="text-lg font-semibold text-stone-900">Eliminar Hospital</h2>
+                   <div className="alert flex flex-col items-center font-normal">
+                   <p className="text-sm text-stone-600">¿Estás seguro de que deseas borrar este registro?</p>
+                   <p className="text-sm text-stone-600">Esta acción es permanente.</p>
+                   </div>
+       
+                   <div className="flex gap-4 mt-4">
+                   <button className="
+                   px-16 py-2 text-lg text-stone-800 border
+                    border-stone-600 rounded-md hover:bg-stone-100" onClick={closeModal}>
+                    Cancelar
+                  </button>
+                  <button className="
+                  px-16 py-2 text-lg text-white bg-red-500
+                   rounded-md hover:bg-red-600" onClick={handleDelete}>
+                    Eliminar
+                  </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            )}
+            <button
+              className="text-gray-400 hover:text-gray-700"
+              onClick={() => router.push('/hospitals/edit')}
+            >
+              Editar
+            </button>
           </div>
         </div>
       )}
@@ -83,7 +153,7 @@ export default function Page() {
   const router = useRouter(); 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const hospitals = new Array(1).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
+  const hospitals = new Array(55).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
 
   const totalPages = Math.ceil(hospitals.length / ITEMS_PER_PAGE);
 
@@ -107,7 +177,6 @@ export default function Page() {
 
           <IconContainer classes="mx-auto mb-8" icon="building" />
           <h2 className='text-center user_page_title'>Registro de Hospitales</h2>
-          
           <div className="hospital__form_container flex flex-col gap-6 pt-8 pb-8 ">
             <div className="flex">
               <Input
