@@ -40,22 +40,24 @@ const HospitalCard = () => {
       {isOpen && (
         <div className="mt-6">
           <p className="text-stone-800 font-bold">Teléfono: +123 456 7890</p>
-          <div className="flex gap-4 mt-2">
-            <input
-              title='email-1'
-              type="email"
-              value="hospitalveterinarin@hvs.cl"
-              className="w-fit p-1 rounded-large text-xs border border-stone-300"
-              readOnly
-            />
-            <input
-              title='email-2'
-              type="email"
-              value="otroemailhospitalveterinario@hvs.cl"
-              className="w-fit p-1 rounded-large text-xs border border-stone-300"
-              readOnly
-            />
-          </div>
+          <div className="flex flex-col md:flex-row gap-4 mt-2">
+          <input
+          title='email-1'
+          type="email"
+          value="hospitalveterinarin@hvs.cl"
+          className="w-fit font-semibold p-1 rounded-full text-xs border border-stone-300"
+          style={{ color: 'var(--color-lightblue)' }}
+          readOnly
+          />
+          <input
+          title='email-2'
+          type="email"
+          value="otroemailhospitalveterinario@hvs.cl"
+          className="w-fit font-semibold p-1 rounded-full text-xs border border-stone-300"
+          style={{ color: 'var(--color-lightblue)' }}
+          readOnly
+          />
+        </div>
           
           <div className="flex items-center mt-4">
             <input
@@ -70,8 +72,18 @@ const HospitalCard = () => {
           </div>
 
           <div className="flex gap-4 mt-4">
-            <Button className="text-gray-600">Aceptar</Button>
-            <Button className="text-gray-600">Cancelar</Button>
+            <button
+              className="text-gray-400 hover:text-gray-700"
+              onClick={() => router.push('/hospitals/search')}
+            >
+              Borrar registro
+            </button>
+            <button
+              className="text-gray-400 hover:text-gray-700"
+              onClick={() => router.push('/hospitals/edit')}
+            >
+              Editar
+            </button>
           </div>
         </div>
       )}
@@ -83,7 +95,7 @@ export default function Page() {
   const router = useRouter(); 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const hospitals = new Array(1).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
+  const hospitals = new Array(55).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
 
   const totalPages = Math.ceil(hospitals.length / ITEMS_PER_PAGE);
 
