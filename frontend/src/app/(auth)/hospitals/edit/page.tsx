@@ -13,6 +13,34 @@ import FooterBGPattern from '@/components/FooterBGPattern';
 import IconContainer from '@/components/IconContainer';
 import Image from 'next/image';
 
+const AlertEmail = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="relative flex items-center"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Image
+        src="/assets/icons/helpIcon.svg" // Ajusta la ruta a tu ícono
+        alt="Save Icon"
+        width={24}
+        height={24}
+        className="cursor-pointer"
+      />
+      {isHovered && (
+        <div className="absolute -right-1 -top-11 mt-2 mr-2 w-64 p-2 bg-stone-900 border border-stone-900 rounded shadow-lg">
+        <div className="relative flex justify-center">
+          <div className="absolute top-4 left-full transform -translate-x-1/2 w-3 h-3 bg-stone-900 border-l border-t border-stone-900 rotate-45"></div>
+        </div>
+        <p className="text-white text-xs">Los reportes se enviarán a este correo.</p>
+      </div>
+      )}
+    </div>
+  );
+};
+
 export default function Page() {
   const router = useRouter();
 
@@ -20,8 +48,8 @@ export default function Page() {
     <>
       <div className="hospital mx-auto px-8 pt-10 pb-16 max-w-screen-lg box-border justify full_height_content">
         <div className="hospital__content flex flex-col content_box_container no_footer_bg relative">
-          <IconContainer classes="mx-auto mb-8" icon="building" />
-          <h2 className='text-center user_page_title'>Registrar Hospital</h2>
+          <IconContainer classes="mx-auto mb-8" icon="edit" />
+          <h2 className='text-center user_page_title'>Editar Hospital</h2>
           <div className="register__form_container flex flex-col gap-6 pt-8">
             <div className="flex">
               <Input
@@ -29,7 +57,7 @@ export default function Page() {
                 label="Nombre del Hospital*"
                 className="text-black label-black"
                 labelPlacement="outside"
-                placeholder="Hospital..."
+                placeholder="Hospital Veterinario de Santiago"
                 variant="bordered"
                 fullWidth
                 radius="sm"
@@ -41,7 +69,7 @@ export default function Page() {
                 label="Teléfono"
                 className="text-black label-black"
                 labelPlacement="outside"
-                placeholder="i.e: +1 (555) 000-0000"
+                placeholder="(562) 2544-0996"
                 variant="bordered"
                 fullWidth
                 radius="sm"
@@ -51,22 +79,25 @@ export default function Page() {
             <Textarea
               label="Dirección"
               labelPlacement="outside"
-              placeholder="Ingresa la dirección"
+              placeholder="Av. Santa Rosa #1934, Santiago"
               className="text-black label-black"
               variant="bordered"
             />
             </div>
-            <div className="flex">
+            <div className="flex relative">
               <Input
                 key="outside"
                 label="Email"
                 className="text-black label-black"
                 labelPlacement="outside"
-                placeholder="i.e: john@doe.com"
+                placeholder="hospitalveterinario@hvs.cl"
                 variant="bordered"
                 fullWidth
                 radius="sm"
               />
+              <div className="absolute right-3 top-2/3 transform -translate-y-1/2">
+                <AlertEmail />
+              </div>
             </div>
             <div className="flex">
               <Link href="/login" className="font-semibold text-blue">
@@ -80,17 +111,32 @@ export default function Page() {
               </Link>
             </div>
           </div>
-          <div className="flex mt-auto">
-            <div className="w-2/12"></div>
-            <div className="w-8/12">
+          <div className="flex mt-auto justify-between space-x-8">
+            <div className="buttonsEditSection w-6/12">
+              <Button 
+                fullWidth
+                className="py-8 text-lg text-stone-800 border font-bold
+                border-stone-600 rounded-md hover:bg-stone-400 bg-white
+                shrink-1 ">
+              Cancelar
+              </Button>
+            </div>
+            <div className="buttonsEditSection w-6/12">
               <Button
                 radius='sm'
                 size="lg"
-                className='text-black text-lg shrink-1 py-8 bg-primary font-bold'
-                
                 fullWidth
+                className=' text-black text-lg shrink-1 py-8 bg-primary font-bold'
                 onClick={() => router.push('/register')}
-              >Guardar</Button>
+              >
+              <Image
+              src="/assets/icons/save.svg"
+              alt="Save Icon"
+              width={24}
+              height={24}
+              className="mr-2"
+              />
+              Guardar</Button>
             </div>
           </div>
         </div>
