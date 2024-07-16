@@ -90,7 +90,16 @@ export default function Page() {
                 
                 fullWidth
                 onClick={() => router.push('/register')}
-              >Guardar</Button>
+              >
+              <Image
+              src="/assets/icons/save.svg"
+              alt="Save Icon"
+              width={24}
+              height={24}
+              className="mr-2"
+              />
+              Guardar
+              </Button>
             </div>
           </div>
         </div>
