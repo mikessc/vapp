@@ -153,7 +153,7 @@ export default function Page() {
   const router = useRouter(); 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const hospitals = new Array(55).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
+  const hospitals = new Array(1).fill(null); // Suponiendo que tienes 500 hospitales como ejemplo
 
   const totalPages = Math.ceil(hospitals.length / ITEMS_PER_PAGE);
 
@@ -198,7 +198,7 @@ export default function Page() {
             </div>
           </div>
           
-          <div className="results max-h-110 overflow-y-auto mx-5 px-6">
+          <div className="results  h-custom overflow-y-auto mx-5 px-6">
           {hospitals.map((_, index) => (
               <HospitalCard key={index} />
             ))}
