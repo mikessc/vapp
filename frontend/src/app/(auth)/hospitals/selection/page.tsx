@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import FooterBGPattern from '@/components/FooterBGPattern';
 import IconContainer from '@/components/IconContainer';
 import Image from 'next/image';
+import Modal from '@/components/modalConfirm';
 
 const ITEMS_PER_PAGE = 100;
 
@@ -18,23 +19,17 @@ const ITEMS_PER_PAGE = 100;
 const HospitalCard = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
-  const openModal = () => {
-    setIsOpenModal(true);
-  };
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const closeModal = () => {
-    setIsOpenModal(false);
-  };
-
+  const openModal = () => setIsOpenModal(true);
+  const closeModal = () => setIsOpenModal(false);
   const handleDelete = () => {
-    // Aquí iría la lógica para eliminar el registro
-    console.log('Eliminando registro...');
-    setIsOpenModal(false); // Cerrar el modal después de eliminar
+    // Aquí manejas la acción de eliminar
+    console.log("Registro eliminado");
+    setIsOpenModal(false);
   };
 
   return (
@@ -88,60 +83,29 @@ const HospitalCard = () => {
           </div>
 
           <div className="flex gap-4 mt-4">
+
           <button
               className="text-gray-400 hover:text-gray-700"
               onClick={openModal} // Abrir el modal al hacer clic en este botón
-            >
-              Borrar registro
-            </button>
-            {isOpenModal && (
-               <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
-               <div className="bg-white p-10 rounded-lg flex flex-col justify-center items-center relative">
-                 <Image
-                   src="/assets/icons/x-close.svg"
-                   alt="Close Icon"
-                   className="cursor-pointer absolute top-5 right-7"
-                   onClick={closeModal}
-                   width={25}
-                   height={25}
-                 />
-       
-                 <div className="flex flex-col items-center gap-4">
-                   <Image 
-                   src="/assets/icons/delete-Icon.svg" 
-                   alt="Trash Icon" 
-                   width={60} 
-                   height={60} 
-                   />
-       
-                   <h2 className="text-lg font-semibold text-stone-900">Eliminar Hospital</h2>
-                   <div className="alert flex flex-col items-center font-normal">
-                   <p className="text-sm text-stone-600">¿Estás seguro de que deseas borrar este registro?</p>
-                   <p className="text-sm text-stone-600">Esta acción es permanente.</p>
-                   </div>
-       
-                   <div className="flex gap-4 mt-4">
-                   <button className="
-                   px-16 py-2 text-lg text-stone-800 border
-                    border-stone-600 rounded-md hover:bg-stone-100" onClick={closeModal}>
-                    Cancelar
-                  </button>
-                  <button className="
-                  px-16 py-2 text-lg text-white bg-red-500
-                   rounded-md hover:bg-red-600" onClick={handleDelete}>
-                    Eliminar
-                  </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            )}
-            <button
-              className="text-gray-400 hover:text-gray-700"
-              onClick={() => router.push('/hospitals/edit')}
-            >
-              Editar
-            </button>
+          >
+            Borrar registro
+          </button>
+
+          <Modal
+            isOpen={isOpenModal}
+            onClose={closeModal}
+            title="Eliminar Hospital"
+            description={["¿Estás seguro de que deseas borrar este registro?", "Esta acción es permanente."]}
+            onConfirm={handleDelete}
+            confirmLabel="Eliminar"
+            cancelLabel="Cancelar"
+          />  
+          <button
+            className="text-gray-400 hover:text-gray-700"
+            onClick={() => router.push('/hospitals/edit')}
+          >
+            Editar
+          </button>
           </div>
         </div>
       )}

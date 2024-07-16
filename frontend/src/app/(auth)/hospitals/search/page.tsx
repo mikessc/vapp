@@ -41,13 +41,13 @@ export default function Page() {
               />
             </div>
           </div>
-          <div className="imgBackground relative">
+          <div className="imgBackground relative flex justify-center">
               <Image
               src="/assets/no_hospitals.jpg"
               alt="results"
               width={1000}
               height={1000}
-              className='w-[100%] h-[auto]'
+              className='w-auto h-custom content-center'
               priority
               />
               <h3 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
@@ -69,7 +69,16 @@ export default function Page() {
                 
                 fullWidth
                 onClick={() => router.push('/hospitals/register')}
-              >Registrar Nuevo</Button>
+              >
+                <Image
+              src="/assets/icons/plus-square-black.svg"
+              alt="Save Icon"
+              width={24}
+              height={24}
+              className="mr-2"
+              />  
+                Registrar Nuevo
+              </Button>
             </div>
           </div>
         </div>
