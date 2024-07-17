@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import FooterBGPattern from '@/components/FooterBGPattern';
 import IconContainer from '@/components/IconContainer';
 import Image from 'next/image';
+import Modal from '@/components/modalConfirm';
 
 const DropdownEsp = () => {
   const router = useRouter();
@@ -50,6 +51,102 @@ const DropdownEsp = () => {
   );
 };
 
+const HospitalCard = () => {
+  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const openModal = () => setIsOpenModal(true);
+  const closeModal = () => setIsOpenModal(false);
+  const handleDelete = () => {
+    // Aquí manejas la acción de eliminar
+    console.log("Registro eliminado");
+    setIsOpenModal(false);
+  };
+
+  return (
+    <div className="border-2 border-stone-100 p-6 rounded-lg mb-6 bg-white shadow-sm">
+      <div className="flex justify-between items-center cursor-pointer" onClick={toggleOpen}>
+        <div>
+          <h2 className="text-lg font-bold">Hospital Veterinario de Santiago</h2>
+          <p className="text-stone-400 font-medium">Av. Santa Rosa #1934, Santiago</p>
+        </div>
+        <div>
+          <Image
+            src={isOpen ? '/assets/icons/chevron-up.svg' : '/assets/icons/chevron-down.svg'}
+            alt="chevron"
+            width={24}
+            height={24}
+          />
+        </div>
+      </div>
+      {isOpen && (
+        <div className="mt-6">
+          <p className="text-stone-800 font-bold">Teléfono: +123 456 7890</p>
+          <div className="flex flex-col md:flex-row gap-4 mt-2">
+          <input
+          title='email-1'
+          type="email"
+          value="hospitalveterinarin@hvs.cl"
+          className="w-fit font-semibold p-1 rounded-full text-xs border border-stone-300"
+          style={{ color: 'var(--color-lightblue)' }}
+          readOnly
+          />
+          <input
+          title='email-2'
+          type="email"
+          value="otroemailhospitalveterinario@hvs.cl"
+          className="w-fit font-semibold p-1 rounded-full text-xs border border-stone-300"
+          style={{ color: 'var(--color-lightblue)' }}
+          readOnly
+          />
+        </div>
+          
+          <div className="flex items-center mt-4">
+            <input
+            type="checkbox"
+            id="emailCopy"
+            className="colorCheckbox w-4 h-4 mr-2 rounded border 
+             "
+            />
+            <label htmlFor="emailCopy" className="text-gray-700">
+            Email con copia de registros
+            </label>
+          </div>
+
+          <div className="flex gap-4 mt-4">
+
+          <button
+              className="text-gray-400 hover:text-gray-700"
+              onClick={openModal} // Abrir el modal al hacer clic en este botón
+          >
+            Borrar registro
+          </button>
+
+          <Modal
+            isOpen={isOpenModal}
+            onClose={closeModal}
+            title="Eliminar Hospital"
+            description={["¿Estás seguro de que deseas borrar este registro?", "Esta acción es permanente."]}
+            onConfirm={handleDelete}
+            confirmLabel="Eliminar"
+            cancelLabel="Cancelar"
+          />  
+          <button
+            className="text-gray-400 hover:text-gray-700"
+            onClick={() => router.push('/hospitals/edit')}
+          >
+            Editar
+          </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function Page() {
   const router = useRouter(); 
