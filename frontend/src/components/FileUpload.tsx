@@ -47,7 +47,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, cont, accept }) => {
         }}>
           {title}
         </span>
-        <label htmlFor={`file-upload-${title}`} className="flex items-center cursor-pointer border border-gray-300 rounded-md p-2 justify-between">
+        <label htmlFor={`file-upload-${title}`} className="flex items-center cursor-pointer border border-stone-300 rounded-md p-2 justify-between">
           <input
             id={`file-upload-${title}`}
             type="file"
@@ -63,8 +63,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, cont, accept }) => {
             style={{ marginLeft: 'auto' }} // Para alinear el ícono a la derecha
           />
         </label>
-        <span className="text-sm font-medium" style={{
-          color: '#403F3F',
+        <span className="text-sm font-medium  text-stone-500" style={{
           fontFamily: 'Roboto',
           fontSize: '14px',
           fontWeight: '600',
@@ -72,7 +71,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, cont, accept }) => {
         }}>
           {cont}
         </span>
-        <span className="text-sm text-gray-600 mr-2">
+        <span className="text-sm text-gray-300 mr-2">
           {uploadedFile ? `Archivo subido: ${uploadedFile.name}` : ''}
         </span>
       </div>
@@ -98,7 +97,6 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, cont, accept }) => {
               height={40}
               style={{ fill: '#1B5B8C' }}
             />
-            <span className="text-sm font-medium text-gray-600 mt-2">Subir imagen</span>
             <input
               id={`file-upload-${title}`}
               type="file"
