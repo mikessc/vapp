@@ -51,7 +51,7 @@ const DropdownEsp = () => {
   );
 };
 
-const HospitalCard = () => {
+const PatientsCard = () => {
   const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => {
