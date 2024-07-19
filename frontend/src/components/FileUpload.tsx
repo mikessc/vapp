@@ -56,7 +56,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ title, cont, accept }) => {
             className="hidden"
           />
           <Image  
-            src="/assets/icons/attach.svg" // Ajusta la ruta según la ubicación real
+            src="/assets/icons/attachment.svg" // Ajusta la ruta según la ubicación real
             alt="Ícono de archivo adjunto"
             width={20}
             height={20}

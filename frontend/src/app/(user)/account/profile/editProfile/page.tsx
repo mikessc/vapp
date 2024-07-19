@@ -97,8 +97,8 @@ export default function Page() {
             <Image
               src="/assets/icons/chevron-left.svg"
               alt="chevron-left"
-              width={20}
-              height={20}
+              width={10}
+              height={10}
               style={{ fill: '#1B5B8C' }}
             />
             <span
@@ -329,7 +329,7 @@ export default function Page() {
                     }}
                   >
                     <Image
-                      src="/assets/icons/save-01.svg"
+                      src="/assets/icons/save.svg"
                       alt="save"
                       width={24}
                       height={24}
@@ -345,7 +345,7 @@ export default function Page() {
 
 
         </div>
-        <FooterBGPattern position="absolute" bottom="40px" />
+        {/* <FooterBGPattern position="absolute" bottom="40px" />  */}
       </div>
 
     </div >
