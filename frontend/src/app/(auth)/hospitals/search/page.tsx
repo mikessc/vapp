@@ -54,7 +54,7 @@ export default function Page() {
               style={{ color: 'var(--color-gray-200)'}}>
               Aún no tienes registros
               </h3>
-            </div>
+          </div>
           <div className="results">
           
           </div>

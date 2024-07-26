@@ -17,10 +17,8 @@ const config: Config = {
         blue: "#2272AF",
         orange: "#F3682B", // Corrigido el color orange
       },
-      maxHeight: {
-        'custom': '38rem',   // Personalizado
-      },
       height: {
+        '36': '36rem',
         'custom': '40rem', // Altura personalizada
       },
     },

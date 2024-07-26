@@ -210,7 +210,7 @@ export default function Page() {
               alt="results"
               width={1000}
               height={1000}
-              className='w-auto h-custom content-center'
+              className='w-auto content-center'
               priority
             />
             <h3 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
